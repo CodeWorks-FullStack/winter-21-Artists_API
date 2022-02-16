@@ -37,6 +37,9 @@ namespace Artists_API
       services.AddScoped<AccountsRepository>();
       services.AddScoped<AccountService>();
 
+      services.AddTransient<ArtistsRepository>();
+      services.AddTransient<ArtistsService>();
+
     }
 
     private void ConfigureCors(IServiceCollection services)
@@ -45,14 +48,14 @@ namespace Artists_API
       {
         options.AddPolicy("CorsDevPolicy", builder =>
               {
-            builder
-                  .AllowAnyMethod()
-                  .AllowAnyHeader()
-                  .AllowCredentials()
-                  .WithOrigins(new string[]{
+                builder
+                      .AllowAnyMethod()
+                      .AllowAnyHeader()
+                      .AllowCredentials()
+                      .WithOrigins(new string[]{
                         "http://localhost:8080", "http://localhost:8081"
+                  });
               });
-          });
       });
     }
 

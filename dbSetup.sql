@@ -21,6 +21,16 @@ CREATE TABLE burgers (
     description VARCHAR(255) DEFAULT 'No description provided' COMMENT 'Burger Description'
 ) DEFAULT CHARSET UTF8 COMMENT 'Burgers for BurgerShack';
 
+CREATE TABLE artists (  
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT COMMENT 'Primary Key',
+    create_time DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT 'Create Time',
+    update_time DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT 'Update Time',
+    name TEXT COMMENT 'The artist name',
+    yearOfBirth INT NOT NULL COMMENT 'Birth Year',
+    yearOfDeath INT NOT NULL COMMENT 'Death Year',
+    isDead TINYINT DEFAULT 0 COMMENT 'Is the Artist Dead'
+) DEFAULT CHARSET UTF8 COMMENT 'Artists';
+
 
 -- CREATE (post)
 INSERT INTO burgers
@@ -49,6 +59,12 @@ WHERE id = 3;
 
 -- DELETE (delete)
 DELETE FROM burgers WHERE id = 3 LIMIT 1;
+
+
+
+
+
+
 
 
 
